@@ -1,0 +1,28 @@
+library(knitr)
+<!-- Specify the report's official name, goal & description. -->
+**Report Goal**:  Provide a minimalistic report prototype for future reports.
+**Report Description**: This is a prototype of a simple report.  It should represent the one side of the spectrum of MIECHV automated reports..
+
+Title
+========================================================
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **Help** toolbar button for more details on using R Markdown).
+
+When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r fig.width=7, fig.height=6}
+plot(cars)
+```
+
+<!-- Point knitr to the underlying code file so it knows where to look for the chunks. -->
+```{r, echo=FALSE}
+pathSourceCode <- file.path(getwd(), "index.R")
+#This allows knitr to call chunks tagged in the underlying PrototypeCode.R file.
+read_chunk(pathSourceCode) 
+```
