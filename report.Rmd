@@ -1,28 +1,22 @@
-library(knitr)
-<!-- Specify the report's official name, goal & description. -->
-**Report Goal**:  Provide a minimalistic report prototype for future reports.
-**Report Description**: This is a prototype of a simple report.  It should represent the one side of the spectrum of MIECHV automated reports..
 
-Title
-========================================================
+```{r }
+# Diamond Cut, Size, and Price
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **Help** toolbar button for more details on using R Markdown).
+Diamonds with an _ideal_ cut have a lower median price.
 
-When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r fig.height=3, fig.width=4, fig.cap="Boxplot of Diamond Prices by Cut", echo=FALSE}
+# graphics packages
+require(ggplot2, quietly=TRUE)
 
-```{r}
-summary(cars)
+# boxplot
+qplot(cut, price, data = diamonds, geom = "boxplot")
 ```
 
-You can also embed plots, for example:
+One explanation for this unexpected finding is that ideal cut diamonds also tend to be **smaller**.  
+The mean is \(E(carat | cut = Ideal) = `r mean(subset(diamonds, cut == "Ideal")$carat)`\), and size is related to price.
 
-```{r fig.width=7, fig.height=6}
-plot(cars)
+```{r echo=FALSE}
+summary(lm(price ~ carat, data = diamonds))
+```
 ```
 
-<!-- Point knitr to the underlying code file so it knows where to look for the chunks. -->
-```{r, echo=FALSE}
-pathSourceCode <- file.path(getwd(), "index.R")
-#This allows knitr to call chunks tagged in the underlying PrototypeCode.R file.
-read_chunk(pathSourceCode) 
-```
