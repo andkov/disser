@@ -1,0 +1,18 @@
+Title : Four datasets for mockup
+========================================================
+
+Key markups  
+Headers (level 1, 2, 3): #, ##, ###  
+Bold, italics: **x**, _x_  
+
+
+
+Generate continuous data
+```{r}
+n<-30
+cont<-rnorm(n=n,mean=70,sd=10)
+seqs<-c(1:n)
+ds<-data.frame(cbind(seqs,cont))
+
+```
+

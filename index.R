@@ -1,12 +1,17 @@
-# 2.2 Creating a Line graphn (p.9)
-str(pressure)
-plot(pressure$temperature, pressure$pressure, type="l")
-points(pressure$temperature, pressure$pressure)
-lines(pressure$temperature, pressure$pressure/2, col="red")
-points(pressure$temperature, pressure$pressure/2, col="red")
+1. Create (generate) four datasets in the following scales:
+continuous - numeric
+discrete - integer
+ordinal - ordered
+nominal - factor
+see my notes for diagrams.
 
 
-library(ggplot2)
+2. Create graphical databox representations of each of them (4)
+  - use ggplot
 
-p<-ggplot(pressure, aes(x=temperature, y=pressure))+ geom_line()
-print(p)
+3. Transform the raw databox view into summarized view
+  - we lack one dimension, so we create it with "display of statistics" 
+  - show how to solve this problem, escape the flatland
+
+
+
